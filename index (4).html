@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ГБУЗ ЦГБ №7 — Служебный регламент, прайс-лист и аттестация</title>
+<style>
+  :root {
+    --bg: #111315;
+    --surface: #1a1d21;
+    --surface-hover: #22262c;
+    --border: #2c3138;
+    --red: #d92b3a;
+    --red-hover: #b8202d;
+    --green: #1ea866;
+    --text: #f1f3f5;
+    --muted: #9aa0a6;
+    --gold: #f5b041;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    padding-bottom: 90px;
+  }
+
+  .top-stripe {
+    height: 5px;
+    background: var(--red);
+    width: 100%;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 20px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .med-cross {
+    width: 48px;
+    height: 48px;
+    background: var(--red);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* Navigation Tabs */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .tab-btn:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  .tab-btn.active {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+
+  .tab-panel {
+    display: none;
+    margin-top: 22px;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  .card.accent-red {
+    border-left: 4px solid var(--red);
+  }
+
+  .card.accent-green {
+    border-left: 4px solid var(--green);
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .step-tag {
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  ul.clean {
+    margin-left: 18px;
+    margin-top: 8px;
+  }
+
+  ul.clean li {
+    margin-bottom: 6px;
+  }
+
+  .quote-box {
+    background: #141619;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .quote-text {
+    font-style: italic;
+    color: #e9ecef;
+    font-size: 14px;
+  }
+
+  .btn-copy {
+    background: var(--surface-hover);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-copy:hover {
+    border-color: var(--red);
+    color: #fff;
+  }
+
+  /* Checklist Questions */
+  .q-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    background: #141619;
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .q-item.done {
+    border-color: var(--green);
+    opacity: 0.78;
+  }
+
+  .q-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .q-num {
+    background: var(--red);
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .q-item.done .q-num {
+    background: var(--green);
+  }
+
+  /* Grid for Tariffs */
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .price-pill {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 17px;
+    margin: 8px 0;
+  }
+
+  .price-free {
+    background: rgba(30, 168, 102, 0.16);
+    color: #34d399;
+    border: 1px solid rgba(30, 168, 102, 0.4);
+  }
+
+  .price-paid {
+    background: rgba(217, 43, 58, 0.16);
+    color: #ff6b78;
+    border: 1px solid rgba(217, 43, 58, 0.4);
+  }
+
+  /* Table & Search */
+  .search-bar {
+    width: 100%;
+    padding: 12px 14px;
+    background: #141619;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .search-bar:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th {
+    background: var(--red);
+    color: #fff;
+    text-align: left;
+    padding: 11px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:hover td {
+    background: var(--surface-hover);
+  }
+
+  tr.selected-row td {
+    background: rgba(217, 43, 58, 0.12);
+  }
+
+  .chk-cell {
+    width: 38px;
+    text-align: center;
+  }
+
+  input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--red);
+    cursor: pointer;
+  }
+
+  /* Bottom Calculator Bar */
+  .calc-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #16191d;
+    border-top: 2px solid var(--red);
+    padding: 12px 16px;
+    z-index: 100;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.6);
+  }
+
+  .calc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--red-hover);
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal-backdrop.open {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--red);
+    border-radius: 10px;
+    max-width: 540px;
+    width: 100%;
+    padding: 20px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  /* Quiz / Attestation Styles */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .field-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .field-input {
+    width: 100%;
+    padding: 11px 12px;
+    background: #141619;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+
+  .quiz-q {
+    background: #141619;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .quiz-q-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .quiz-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.12s;
+  }
+
+  .quiz-opt:hover {
+    background: var(--surface-hover);
+  }
+
+  .quiz-opt input[type="radio"] {
+    margin-top: 3px;
+    accent-color: var(--red);
+  }
+
+  .quiz-opt.correct-ans {
+    border-color: var(--green);
+    background: rgba(30, 168, 102, 0.16);
+  }
+
+  .quiz-opt.wrong-ans {
+    border-color: var(--red);
+    background: rgba(217, 43, 58, 0.18);
+  }
+
+  .quiz-explain {
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 9px 12px;
+    border-radius: 6px;
+    background: #1b1f24;
+    display: none;
+  }
+
+  /* Certificate Card */
+  .cert-box {
+    display: none;
+    margin-top: 22px;
+    background: linear-gradient(145deg, #181c20 0%, #121417 100%);
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  }
+
+  .cert-box.failed {
+    border-color: var(--red);
+  }
+
+  .cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cert-stamp {
+    border: 2px solid var(--green);
+    color: #34d399;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+
+  .cert-box.failed .cert-stamp {
+    border-color: var(--red);
+    color: #ff6b78;
+  }
+
+  .cert-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    background: #111315;
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+
+  .cert-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cert-val {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div class="med-cross">+</div>
+      <div>
+        <div class="badge">ГБУЗ ЦГБ №7 • Кутузовский федеральный округ</div>
+        <h1>Регламент оформления медкнижки, справок и прайс-лист</h1>
+        <div class="subtitle">Основание: Приложение № 1 к приказу № 131-МСПТ «Об утверждении порядка предоставления платных услуг ГБУЗ ЦГБ №7»</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('tab1', this)">1. Регламент и RP</button>
+      <button class="tab-btn" onclick="switchTab('tab2', this)">2. Медкнижки и справки (п. 1–5)</button>
+      <button class="tab-btn" onclick="switchTab('tab3', this)">3. Полный прайс и калькулятор (п. 1–28)</button>
+      <button class="tab-btn" onclick="switchTab('tab4', this)">4. Тест на знание (Аттестация)</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- TAB 1: РЕГЛАМЕНТ И RP -->
+  <section id="tab1" class="tab-panel active">
+    <div class="card accent-red">
+      <div class="card-title"><span class="step-tag">Шаг 2</span> Перемещение в медицинский кабинет</div>
+      <p>Оказывать услугу разрешается <strong>строго в оборудованном медицинском помещении</strong>.</p>
+      <ul class="clean">
+        <li><strong>Допустимые локации:</strong> манипуляционная или кабинет терапевта.</li>
+        <li><strong>Запрещено:</strong> проводить опрос и выдавать документы в холле, коридоре или на улице.</li>
+      </ul>
+      <div class="quote-box">
+        <span class="quote-text" id="rep-invite">«Пройдёмте в кабинет — там мы сможем провести опрос и оформить документы в надлежащих условиях».</span>
+        <button class="btn-copy" onclick="copyText('rep-invite', this)">Копировать реплику</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="step-tag">Шаг 3</span> Приём документов и оплата</div>
+      <ul class="clean">
+        <li><strong>Паспорт нового образца:</strong> обязателен для каждого гражданина.</li>
+        <li><strong>Существующая медицинская книжка:</strong> проверяется только при актуализации (продлении).</li>
+        <li><strong>Оплата:</strong> новая медкнижка / новая справка нарколога — <strong>0,00 руб.</strong>; актуализация / полный пакет документов — <strong>10 000,00 руб.</strong> (принимаются строго наличными в полном объёме).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="step-tag">Шаг 4</span> Медицинский опрос (Интерактивный чек-лист)</div>
+      <p style="color: var(--muted); font-size: 13px; margin-bottom: 12px;">Тон специалиста: профессиональный, спокойный, нейтральный. Задавайте вопросы размеренно, сверяясь с чек-листом (нажмите на пункт, чтобы отметить проведённым):</p>
+
+      <div class="q-item" onclick="toggleQuestion(this)">
+        <div class="q-left">
+          <div class="q-num">1</div>
+          <div id="q1-text">«Болели ли вы ОРВИ или ОРЗ за последний календарный месяц?»</div>
+        </div>
+        <button class="btn-copy" onclick="event.stopPropagation(); copyText('q1-text', this)">Копировать</button>
+      </div>
+
+      <div class="q-item" onclick="toggleQuestion(this)">
+        <div class="q-left">
+          <div class="q-num">2</div>
+          <div id="q2-text">«Были ли у вас переломы костей или серьёзные травмы опорно-двигательного аппарата за последние шесть месяцев?»</div>
+        </div>
+        <button class="btn-copy" onclick="event.stopPropagation(); copyText('q2-text', this)">Копировать</button>
+      </div>
+
+      <div class="q-item" onclick="toggleQuestion(this)">
+        <div class="q-left">
+          <div class="q-num">3</div>
+          <div id="q3-text">«Употребляете ли вы табачную или алкогольную продукцию на регулярной основе?»</div>
+        </div>
+        <button class="btn-copy" onclick="event.stopPropagation(); copyText('q3-text', this)">Копировать</button>
+      </div>
+
+      <div class="q-item" onclick="toggleQuestion(this)">
+        <div class="q-left">
+          <div class="q-num">4</div>
+          <div id="q4-text">«Есть ли у вас подтверждённые аллергические реакции на какие-либо лекарства?»</div>
+        </div>
+        <button class="btn-copy" onclick="event.stopPropagation(); copyText('q4-text', this)">Копировать</button>
+      </div>
+
+      <div class="q-item" onclick="toggleQuestion(this)">
+        <div class="q-left">
+          <div class="q-num">5</div>
+          <div id="q5-text">«Состоите ли вы на диспансерном учёте по поводу хронических заболеваний?»</div>
+        </div>
+        <button class="btn-copy" onclick="event.stopPropagation(); copyText('q5-text', this)">Копировать</button>
+      </div>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card">
+        <div class="card-title"><span class="step-tag">Шаг 5</span> Системная выдача</div>
+        <p>Когда опрос завершён, противопоказаний нет, а расчёт произведён:</p>
+        <ul class="clean">
+          <li>Нажмите клавишу <strong>[E]</strong> рядом с пациентом.</li>
+          <li>Выберите: <strong>Выдать документ → Медицинская книжка → Выдать</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-title"><span class="step-tag">Шаг 6</span> Фиксация и премия</div>
+        <p>После выдачи появится уведомление:</p>
+        <p style="color: #34d399; font-weight: 600; margin: 6px 0;">«Вы выдали документ и получите премию 3 000 рублей с зарплатой»</p>
+        <p style="font-size: 13px; color: var(--muted);">Обязательно сделайте <strong>скриншот</strong> уведомления для отчёта на повышение и получения премии.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: МЕДКНИЖКИ И СПРАВКИ -->
+  <section id="tab2" class="tab-panel">
+    <div class="grid-cards">
+      <div class="card accent-green">
+        <div class="badge">Пункт 1 Приказа № 131-МСПТ</div>
+        <h3>Оформление новой медицинской книжки</h3>
+        <div class="price-pill price-free">0,00 руб. (Бесплатно)</div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Первичное оформление при предъявлении паспорта нового образца.</p>
+        <button class="btn-copy" onclick="toggleServiceById(1)">+ Добавить в чек</button>
+      </div>
+
+      <div class="card accent-red">
+        <div class="badge">Пункт 2 Приказа № 131-МСПТ</div>
+        <h3>Актуализация медицинской книжки</h3>
+        <div class="price-pill price-paid">10 000,00 руб.</div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Продление действующей или просроченной медкнижки. Оплата наличными.</p>
+        <button class="btn-copy" onclick="toggleServiceById(2)">+ Добавить в чек</button>
+      </div>
+
+      <div class="card accent-green">
+        <div class="badge">Пункт 3 Приказа № 131-МСПТ</div>
+        <h3>Оформление новой справки от нарколога</h3>
+        <div class="price-pill price-free">0,00 руб. (Бесплатно)</div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Первичная выдача справки врача-нарколога по паспорту нового образца.</p>
+        <button class="btn-copy" onclick="toggleServiceById(3)">+ Добавить в чек</button>
+      </div>
+
+      <div class="card accent-red">
+        <div class="badge">Пункт 4 Приказа № 131-МСПТ</div>
+        <h3>Актуализация справки от нарколога</h3>
+        <div class="price-pill price-paid">10 000,00 руб.</div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Подтверждение актуальности и продление справки от нарколога.</p>
+        <button class="btn-copy" onclick="toggleServiceById(4)">+ Добавить в чек</button>
+      </div>
+
+      <div class="card accent-red">
+        <div class="badge">Пункт 5 Приказа № 131-МСПТ</div>
+        <h3>Полный пакет медицинских документов</h3>
+        <div class="price-pill price-paid">10 000,00 руб.</div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Комплексное оформление пакета документов для трудоустройства или службы.</p>
+        <button class="btn-copy" onclick="toggleServiceById(5)">+ Добавить в чек</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: ПОЛНЫЙ ПРАЙС И КАЛЬКУЛЯТОР -->
+  <section id="tab3" class="tab-panel">
+    <div class="card">
+      <div class="card-title">Полный перечень услуг (Приложение № 1 к приказу № 131-МСПТ)</div>
+      <input type="text" id="priceSearch" class="search-bar" placeholder="Поиск по номеру пункта или названию услуги (например: хирург, тест, рентген, 14)..." oninput="filterPriceTable()">
+
+      <div style="overflow-x: auto;">
+        <table id="priceTable">
+          <thead>
+            <tr>
+              <th class="chk-cell">Чек</th>
+              <th style="width: 55px;">№</th>
+              <th>Наименование услуги</th>
+              <th style="width: 150px; text-align: right;">Стоимость (руб.)</th>
+            </tr>
+          </thead>
+          <tbody id="priceTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: ТЕСТ НА ЗНАНИЕ (АТТЕСТАЦИЯ) -->
+  <section id="tab4" class="tab-panel">
+    <div class="card accent-red">
+      <div class="card-title">Аттестация сотрудника ГБУЗ ЦГБ №7</div>
+      <p style="font-size: 14px; color: var(--muted);">Заполните служебные данные перед прохождением теста. По итогам проверки сформируется именной сертификат, который можно заскринить для отчёта на повышение или допуск к работе. Проходной балл: <strong>от 10 из 12 (83%)</strong>.</p>
+
+      <div class="form-grid">
+        <div class="field-group">
+          <label for="empName">Имя и Фамилия сотрудника (в игре)</label>
+          <input type="text" id="empName" class="field-input" placeholder="Например: Иван Смирнов">
+        </div>
+        <div class="field-group">
+          <label for="empRank">Должность / Звание</label>
+          <input type="text" id="empRank" class="field-input" placeholder="Например: Интерн / Терапевт">
+        </div>
+        <div class="field-group">
+          <label for="empId">Номер удостоверения / Статик (необязательно)</label>
+          <input type="text" id="empId" class="field-input" placeholder="Например: #14820">
+        </div>
+      </div>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+      <button class="btn-primary" onclick="submitQuiz()">Завершить тест и сформировать сертификат</button>
+      <button class="btn-copy" onclick="resetQuiz()">Сбросить ответы и пройти заново</button>
+    </div>
+
+    <!-- ИМЕННОЙ СЕРТИФИКАТ -->
+    <div id="certBox" class="cert-box">
+      <div class="cert-header">
+        <div>
+          <div class="badge">ГБУЗ ЦГБ №7 • Отдел кадров и контроля качества</div>
+          <h2 style="font-size: 20px; text-transform: uppercase; letter-spacing: 0.03em;">Именной сертификат об аттестации</h2>
+        </div>
+        <div class="cert-stamp" id="certStamp">ДОПУЩЕН К РАБОТЕ</div>
+      </div>
+
+      <p id="certSummaryText" style="font-size: 14px; color: var(--text);"></p>
+
+      <div class="cert-meta">
+        <div>
+          <div class="cert-label">Сотрудник</div>
+          <div class="cert-val" id="certOutName">—</div>
+        </div>
+        <div>
+          <div class="cert-label">Должность / Звание</div>
+          <div class="cert-val" id="certOutRank">—</div>
+        </div>
+        <div>
+          <div class="cert-label">Удостоверение / ID</div>
+          <div class="cert-val" id="certOutId">—</div>
+        </div>
+        <div>
+          <div class="cert-label">Результат тестирования</div>
+          <div class="cert-val" id="certOutScore">—</div>
+        </div>
+        <div>
+          <div class="cert-label">Дата и время сдачи</div>
+          <div class="cert-val" id="certOutDate">—</div>
+        </div>
+        <div>
+          <div class="cert-label">Нормативная база</div>
+          <div class="cert-val">Приказ № 131-МСПТ</div>
+        </div>
+      </div>
+
+      <div style="font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+        <span>Документ сформирован автоматически для прикрепления к отчёту сотрудника (F12 / Win+Shift+S).</span>
+        <span style="color: var(--text); font-weight: 700;">ГБУЗ ЦГБ №7 • Кутузовский ФО</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BOTTOM CALCULATOR BAR -->
+<div class="calc-bar">
+  <div class="calc-inner">
+    <div>
+      <span style="color: var(--muted); font-size: 13px;">Выбрано услуг:</span>
+      <strong id="calcCount" style="font-size: 16px; margin-right: 14px;">0</strong>
+      <span style="color: var(--muted); font-size: 13px;">Итого к оплате:</span>
+      <strong id="calcTotal" style="font-size: 18px; color: #34d399;">0,00 руб.</strong>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <button class="btn-copy" onclick="clearCalc()">Очистить</button>
+      <button class="btn-primary" onclick="openReceiptModal()">Показать чек / реплику</button>
+    </div>
+  </div>
+</div>
+
+<!-- RECEIPT MODAL -->
+<div class="modal-backdrop" id="receiptModal" onclick="if(event.target===this) closeReceiptModal()">
+  <div class="modal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="text-transform: uppercase; font-size: 16px;">Расчётный лист пациента</h3>
+      <button class="btn-copy" onclick="closeReceiptModal()">Закрыть</button>
+    </div>
+    <div id="receiptList" style="font-size: 14px; margin-bottom: 14px;"></div>
+    <div class="quote-box">
+      <span class="quote-text" id="receiptPhrase">Выберите услуги в прайс-листе для расчёта.</span>
+      <button class="btn-copy" onclick="copyText('receiptPhrase', this)">Копировать реплику</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SERVICES = [
+    { id: 1, name: "Оформление новой медицинской книжки", price: 0 },
+    { id: 2, name: "Актуализация медицинской книжки", price: 10000 },
+    { id: 3, name: "Оформление новой справки от нарколога", price: 0 },
+    { id: 4, name: "Актуализация справки от нарколога", price: 10000 },
+    { id: 5, name: "Оформление полного пакета медицинских документов", price: 10000 },
+    { id: 6, name: "Прием терапевта", price: 10000 },
+    { id: 7, name: "Прием хирурга", price: 30000 },
+    { id: 8, name: "Прием невролога", price: 10000 },
+    { id: 9, name: "Прием офтальмолога", price: 10000 },
+    { id: 10, name: "Прием психиатра", price: 15000 },
+    { id: 11, name: "Прием психотерапевта", price: 20000 },
+    { id: 12, name: "Прием гинеколога", price: 20000 },
+    { id: 13, name: "Прием уролога", price: 15000 },
+    { id: 14, name: "Прием стоматолога", price: 35000 },
+    { id: 15, name: "Прием травматолога", price: 20000 },
+    { id: 16, name: "Прием инфекциониста", price: 25000 },
+    { id: 17, name: "Прием рентгенолога (консультация)", price: 20000 },
+    { id: 18, name: "Проверка на алкоголь", price: 30000 },
+    { id: 19, name: "Экспресс-тест на наркотические вещества", price: 35000 },
+    { id: 20, name: "Комплексная проверка (алкоголь + наркотики)", price: 10000 },
+    { id: 21, name: "Повторный тест", price: 40000 },
+    { id: 22, name: "Рентген грудной клетки", price: 10000 },
+    { id: 23, name: "Рентген конечностей", price: 30000 },
+    { id: 24, name: "Рентген костей и суставов", price: 10000 },
+    { id: 25, name: "Повторное исследование", price: 10000 },
+    { id: 26, name: "Измерение давления и пульса", price: 10000 },
+    { id: 27, name: "Перевязка и обработка раны", price: 30000 },
+    { id: 28, name: "Наложение повязки", price: 10000 }
+  ];
+
+  const selectedIds = new Set();
+
+  function formatRub(num) {
+    return num.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' руб.';
+  }
+
+  function renderPriceTable() {
+    const tbody = document.getElementById('priceTableBody');
+    tbody.innerHTML = '';
+    SERVICES.forEach(s => {
+      const tr = document.createElement('tr');
+      tr.dataset.id = s.id;
+      tr.dataset.search = (s.id + ' ' + s.name).toLowerCase();
+      if (selectedIds.has(s.id)) tr.classList.add('selected-row');
+      tr.innerHTML = `
+        <td class="chk-cell"><input type="checkbox" ${selectedIds.has(s.id) ? 'checked' : ''} onchange="toggleServiceById(${s.id})"></td>
+        <td><strong>${s.id}.</strong></td>
+        <td>${s.name}</td>
+        <td style="text-align: right; font-weight: 700; color: ${s.price === 0 ? '#34d399' : '#f1f3f5'};">${formatRub(s.price)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function toggleServiceById(id) {
+    if (selectedIds.has(id)) {
+      selectedIds.delete(id);
+    } else {
+      selectedIds.add(id);
+    }
+    updateCalc();
+    renderPriceTable();
+    filterPriceTable();
+  }
+
+  function clearCalc() {
+    selectedIds.clear();
+    updateCalc();
+    renderPriceTable();
+  }
+
+  function updateCalc() {
+    let total = 0;
+    selectedIds.forEach(id => {
+      const item = SERVICES.find(x => x.id === id);
+      if (item) total += item.price;
+    });
+    document.getElementById('calcCount').textContent = selectedIds.size;
+    document.getElementById('calcTotal').textContent = formatRub(total);
+  }
+
+  function filterPriceTable() {
+    const q = document.getElementById('priceSearch').value.trim().toLowerCase();
+    document.querySelectorAll('#priceTableBody tr').forEach(tr => {
+      tr.style.display = tr.dataset.search.includes(q) ? '' : 'none';
+    });
+  }
+
+  function openReceiptModal() {
+    const listEl = document.getElementById('receiptList');
+    const phraseEl = document.getElementById('receiptPhrase');
+    if (selectedIds.size === 0) {
+      listEl.innerHTML = '<p style="color: var(--muted);">Ни одна услуга не выбрана.</p>';
+      phraseEl.textContent = 'Выберите услуги в прайс-листе для расчёта.';
+    } else {
+      let total = 0;
+      let html = '<ul class="clean">';
+      const names = [];
+      Array.from(selectedIds).sort((a,b) => a - b).forEach(id => {
+        const s = SERVICES.find(x => x.id === id);
+        if (s) {
+          total += s.price;
+          names.push(s.name.toLowerCase());
+          html += `<li><strong>п. ${s.id}:</strong> ${s.name} — <strong>${formatRub(s.price)}</strong></li>`;
+        }
+      });
+      html += `</ul><p style="margin-top:10px; font-size:16px;">Итого: <strong style="color:#34d399;">${formatRub(total)}</strong></p>`;
+      listEl.innerHTML = html;
+      phraseEl.textContent = `«К оплате за оказанные медицинские услуги (${names.join(', ')}) составляет ${formatRub(total)} наличными в полном объёме».`;
+    }
+    document.getElementById('receiptModal').classList.add('open');
+  }
+
+  function closeReceiptModal() {
+    document.getElementById('receiptModal').classList.remove('open');
+  }
+
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleQuestion(el) {
+    el.classList.toggle('done');
+  }
+
+  function copyText(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.innerText;
+      btn.innerText = 'Скопировано!';
+      setTimeout(() => { btn.innerText = orig; }, 1400);
+    });
+  }
+
+  // QUIZ DATA (12 вопросов по всему регламенту и прайсу)
+  const QUIZ_QUESTIONS = [
+    {
+      q: "1. В каких разрешённых локациях сотрудники ГБУЗ ЦГБ №7 имеют право проводить медицинский опрос и выдавать документы?",
+      options: [
+        "В холле или коридоре больницы",
+        "В манипуляционной или кабинете терапевта",
+        "На улице у центрального входа в здание",
+        "В зоне ожидания пациентов"
+      ],
+      correct: 1,
+      explain: "Оказывать услугу разрешается строго в оборудованном медицинском помещении: манипуляционной или кабинете терапевта."
+    },
+    {
+      q: "2. Какой документ гражданин обязан предъявить в обязательном порядке перед началом оформления медкнижки или справок?",
+      options: [
+        "Водительское удостоверение",
+        "Пропуск сотрудника организации",
+        "Паспорт нового образца",
+        "Свидетельство о рождении"
+      ],
+      correct: 2,
+      explain: "Паспорт нового образца является обязательным документом при каждом обращении."
+    },
+    {
+      q: "3. Какова стоимость оформления новой медицинской книжки и актуализации (продления) существующей по Приказу № 131-МСПТ?",
+      options: [
+        "Новая — 10 000,00 руб., актуализация — 0,00 руб.",
+        "Новая — 0,00 руб. (бесплатно), актуализация — 10 000,00 руб.",
+        "Обе услуги стоят по 10 000,00 руб.",
+        "Обе услуги предоставляются бесплатно"
+      ],
+      correct: 1,
+      explain: "Согласно п. 1 и п. 2 Приложения № 1 к приказу № 131-МСПТ, оформление новой медкнижки бесплатно (0,00 руб.), а её актуализация стоит 10 000,00 руб."
+    },
+    {
+      q: "4. Сколько стоит справка от нарколога (новая / актуализация) и полный пакет медицинских документов (п. 3–5)?",
+      options: [
+        "Новая справка — 0,00 руб., актуализация справки и полный пакет — по 10 000,00 руб.",
+        "Новая справка — 10 000,00 руб., полный пакет — 25 000,00 руб.",
+        "Все перечисленные услуги бесплатны",
+        "Справка нарколога — 15 000,00 руб., полный пакет — 30 000,00 руб."
+      ],
+      correct: 0,
+      explain: "П. 3 (новая справка нарколога) — 0,00 руб., п. 4 (актуализация справки нарколога) — 10 000,00 руб., п. 5 (полный пакет меддокументов) — 10 000,00 руб."
+    },
+    {
+      q: "5. Какова официальная стоимость приёма у хирурга (п. 7) и стоматолога (п. 14)?",
+      options: [
+        "Хирург — 10 000,00 руб., стоматолог — 10 000,00 руб.",
+        "Хирург — 25 000,00 руб., стоматолог — 30 000,00 руб.",
+        "Хирург — 30 000,00 руб., стоматолог — 35 000,00 руб.",
+        "Хирург — 20 000,00 руб., стоматолог — 25 000,00 руб."
+      ],
+      correct: 2,
+      explain: "По прайс-листу приём хирурга стоит 30 000,00 руб., а приём стоматолога — 35 000,00 руб."
+    },
+    {
+      q: "6. Приём какого врача-специалиста стоит ровно 25 000,00 рублей?",
+      options: [
+        "Терапевта (п. 6)",
+        "Психиатра (п. 10)",
+        "Инфекциониста (п. 16)",
+        "Травматолога (п. 15)"
+      ],
+      correct: 2,
+      explain: "Согласно п. 16 Приложения № 1, приём инфекциониста стоит 25 000,00 руб."
+    },
+    {
+      q: "7. Сколько стоят повторный тест (п. 21) и перевязка с обработкой раны (п. 27)?",
+      options: [
+        "Повторный тест — 40 000,00 руб., перевязка и обработка раны — 30 000,00 руб.",
+        "Повторный тест — 20 000,00 руб., перевязка и обработка раны — 10 000,00 руб.",
+        "Повторный тест — 30 000,00 руб., перевязка и обработка раны — 40 000,00 руб.",
+        "Обе процедуры стоят по 10 000,00 руб."
+      ],
+      correct: 0,
+      explain: "Повторный тест (п. 21) оценивается в 40 000,00 руб., перевязка и обработка раны (п. 27) — в 30 000,00 руб."
+    },
+    {
+      q: "8. Какова стоимость проверки на алкоголь (п. 18), экспресс-теста на наркотики (п. 19) и комплексной проверки (п. 20)?",
+      options: [
+        "Алкоголь — 30 000 руб., наркотики — 35 000 руб., комплексная — 10 000 руб.",
+        "Алкоголь — 10 000 руб., наркотики — 10 000 руб., комплексная — 35 000 руб.",
+        "Алкоголь — 20 000 руб., наркотики — 25 000 руб., комплексная — 40 000 руб.",
+        "Все три проверки стоят по 30 000 руб."
+      ],
+      correct: 0,
+      explain: "Проверка на алкоголь — 30 000,00 руб., экспресс-тест на наркотики — 35 000,00 руб., комплексная проверка (алкоголь + наркотики) — 10 000,00 руб."
+    },
+    {
+      q: "9. Какие 5 обязательных пунктов входят в устный медицинский опрос пациента?",
+      options: [
+        "ОРВИ/ОРЗ за 1 месяц, переломы/травмы за 6 месяцев, табак/алкоголь, аллергия на лекарства, диспансерный учёт",
+        "ОРВИ/ОРЗ за полгода, переломы за 1 год, группа крови, рост и вес",
+        "ОРВИ/ОРЗ за 1 неделю, операции за 3 года, место работы, семейное положение",
+        "Только измерение давления, пульса и проверка на алкоголь"
+      ],
+      correct: 0,
+      explain: "Чек-лист Шага 4 включает строго эти 5 вопросов: ОРВИ/ОРЗ за последний месяц, травмы/переломы за 6 месяцев, регулярный табак/алкоголь, аллергия на лекарства и диспансерный учёт."
+    },
+    {
+      q: "10. Каков правильный системный алгоритм выдачи медицинской книжки в кабинете?",
+      options: [
+        "Клавиша [Q] → Меню услуг → Справки → Оформить",
+        "Клавиша [E] → Выдать документ → Медицинская книжка → Выдать",
+        "Клавиша [F] → Документы → Выбрать → Подтвердить",
+        "Клавиша [Tab] → Медкнижка → Создать"
+      ],
+      correct: 1,
+      explain: "Шаг 5 регламента: нажать клавишу [E] рядом с пациентом → Выдать документ → Медицинская книжка → Выдать."
+    },
+    {
+      q: "11. Что обязан сделать сотрудник после системной выдачи документа для получения премии 3 000 рублей?",
+      options: [
+        "Сообщить об этом в рацию без фиксации",
+        "Сделать скриншот системного уведомления о выдаче и премии 3 000 рублей",
+        "Попросить пациента оставить отзыв на форуме",
+        "Передать наличные старшему врачу"
+      ],
+      correct: 1,
+      explain: "Шаг 6: необходимо сразу сделать скриншот системного уведомления «Вы выдали документ и получите премию 3 000 рублей с зарплатой» для отчёта."
+    },
+    {
+      q: "12. Сколько стоят приёмы у терапевта (п. 6) и психиатра (п. 10) согласно Приказу № 131-МСПТ?",
+      options: [
+        "Терапевт — 10 000,00 руб., психиатр — 15 000,00 руб.",
+        "Терапевт — 15 000,00 руб., психиатр — 10 000,00 руб.",
+        "Терапевт — 20 000,00 руб., психиатр — 20 000,00 руб.",
+        "Терапевт — 5 000,00 руб., психиатр — 30 000,00 руб."
+      ],
+      correct: 0,
+      explain: "Приём терапевта (п. 6) стоит 10 000,00 руб., а приём психиатра (п. 10) — 15 000,00 руб."
+    }
+  ];
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    container.innerHTML = '';
+    QUIZ_QUESTIONS.forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-q';
+      div.id = 'quiz-block-' + idx;
+      let optsHtml = '';
+      item.options.forEach((opt, oIdx) => {
+        optsHtml += `
+          <label class="quiz-opt" id="opt-${idx}-${oIdx}">
+            <input type="radio" name="q_${idx}" value="${oIdx}">
+            <span>${opt}</span>
+          </label>
+        `;
+      });
+      div.innerHTML = `
+        <div class="quiz-q-title">${item.q}</div>
+        ${optsHtml}
+        <div class="quiz-explain" id="exp-${idx}">${item.explain}</div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function submitQuiz() {
+    const nameInput = document.getElementById('empName').value.trim();
+    const rankInput = document.getElementById('empRank').value.trim();
+    const idInput = document.getElementById('empId').value.trim();
+
+    if (!nameInput || !rankInput) {
+      alert('Пожалуйста, укажите Имя и Фамилию сотрудника, а также Должность/Звание перед формированием сертификата.');
+      document.getElementById('empName').focus();
+      return;
+    }
+
+    let unanswered = 0;
+    QUIZ_QUESTIONS.forEach((_, idx) => {
+      const checked = document.querySelector(`input[name="q_${idx}"]:checked`);
+      if (!checked) unanswered++;
+    });
+
+    if (unanswered > 0) {
+      alert(`Вы ответили не на все вопросы. Осталось без ответа: ${unanswered}.`);
+      return;
+    }
+
+    let score = 0;
+    QUIZ_QUESTIONS.forEach((item, idx) => {
+      const checked = document.querySelector(`input[name="q_${idx}"]:checked`);
+      const chosen = parseInt(checked.value, 10);
+
+      item.options.forEach((_, oIdx) => {
+        const lbl = document.getElementById(`opt-${idx}-${oIdx}`);
+        lbl.classList.remove('correct-ans', 'wrong-ans');
+        if (oIdx === item.correct) {
+          lbl.classList.add('correct-ans');
+        } else if (oIdx === chosen && chosen !== item.correct) {
+          lbl.classList.add('wrong-ans');
+        }
+      });
+
+      if (chosen === item.correct) score++;
+      const exp = document.getElementById(`exp-${idx}`);
+      exp.style.display = 'block';
+    });
+
+    const total = QUIZ_QUESTIONS.length;
+    const pct = Math.round((score / total) * 100);
+    const passed = score >= 10;
+
+    const certBox = document.getElementById('certBox');
+    const stamp = document.getElementById('certStamp');
+    const summary = document.getElementById('certSummaryText');
+
+    certBox.style.display = 'block';
+    if (passed) {
+      certBox.classList.remove('failed');
+      stamp.textContent = 'АТТЕСТАЦИЯ ПРОЙДЕНА • ДОПУЩЕН';
+      summary.innerHTML = `Настоящим подтверждается, что сотрудник <strong>${escapeHtml(nameInput)}</strong> успешно сдал квалификационный зачёт на знание служебного регламента оформления медицинских книжек, справок и актуального прайс-листа ГБУЗ ЦГБ №7.`;
+    } else {
+      certBox.classList.add('failed');
+      stamp.textContent = 'НЕ СДАНО • ТРЕБУЕТСЯ ПЕРЕСДАЧА';
+      summary.innerHTML = `Сотрудник <strong>${escapeHtml(nameInput)}</strong> не набрал проходной минимум (требуется от 10 из 12 баллов). Изучите выделенные пояснения к ошибкам выше и пройдите аттестацию повторно.`;
+    }
+
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('ru-RU') + ' в ' + now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+
+    document.getElementById('certOutName').textContent = nameInput;
+    document.getElementById('certOutRank').textContent = rankInput;
+    document.getElementById('certOutId').textContent = idInput || 'Не указан';
+    document.getElementById('certOutScore').textContent = `${score} из ${total} баллов (${pct}%)`;
+    document.getElementById('certOutDate').textContent = dateStr;
+
+    certBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    renderQuiz();
+    document.getElementById('certBox').style.display = 'none';
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[m]));
+  }
+
+  // Init
+  renderPriceTable();
+  renderQuiz();
+</script>
+</body>
+</html>
